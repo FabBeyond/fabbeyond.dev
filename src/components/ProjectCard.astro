@@ -1,0 +1,30 @@
+---
+interface Link {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  links: Link[];
+  image: string;
+}
+
+const { title, description, links, image } = Astro.props;
+---
+
+<div class="project">
+  <div class="project-content">
+    <img src={"../../public" + image} alt={title} />
+    <p class="project-title">{title}</p>
+    <p class="project-description">{description}</p>
+    {links.map((i) => (
+      <div class="project-link">
+        <a href={i.href} target="_blank">
+          {i.label}
+        </a>
+      </div>
+    ))}
+  </div>
+</div>

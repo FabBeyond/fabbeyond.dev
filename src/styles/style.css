@@ -7,6 +7,7 @@
   --muted: #9aa1b3;
   --nav: #c9ceda;
   --line: #4370a9;
+  --card: #262838;
 }
 
 body,
@@ -14,6 +15,8 @@ html {
   background-color: var(--bg);
   padding: 0;
   margin: 0;
+  font-family: "Quantico";
+  font-weight: bolder;
 }
 .titles {
   font-weight: bolder;
@@ -22,9 +25,6 @@ html {
   text-align: center;
   display: block;
   margin: 0;
-}
-.font {
-  font-family: "Quantico";
 }
 .divider {
   height: 3px;
@@ -132,9 +132,53 @@ main {
 }
 .project-list {
   display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
 .project {
-  width: 200px;
-  height: 300px;
-  background-color: var(--accent);
+  width: 300px;
+  height: 400px;
+  padding: 20px;
+  background-color: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 15px;
+}
+.project:hover {
+  border-color: var(--accent);
+}
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.project-content * {
+  padding: 0;
+  margin: 0;
+}
+.project-title {
+  font-size: 40px;
+  color: var(--accent);
+}
+.project-description {
+  font-size: 20px;
+  color: var(--text);
+  font-weight: 400;
+}
+.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 30px;
+  background-color: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  color: var(--line);
+}
+.project-link:hover {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+.project-link a {
+  color: inherit;
 }

@@ -1,6 +1,23 @@
 ---
 import "../styles/style.css";
 import Navbar from "../components/Navbar.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+const featuredProjects = [
+  {
+    title: "LITT",
+    description:
+      "LITT is a CLI tool to display lyrics of the currently playing song in the terminal",
+    links: [{ href: "https://github.com/FabBeyond/litt", label: "GitHub" }],
+    image: "",
+  },
+  {
+    title: "Fortuna",
+    description:
+      "Fortuna is a rogue-like card game made for the 2025 Spengergasse internal game jam",
+    links: [{ href: "https://fabbeyond.itch.io/fortuna", label: "itch.io" }],
+    image: "/GameIcons/Fortuna.png",
+  },
+];
 ---
 
 <html lang="en">
@@ -44,7 +61,9 @@ import Navbar from "../components/Navbar.astro";
       </div>
 
       <div class="project-list">
-        <div class="project"></div>
+        {featuredProjects.map((i) => (
+          <ProjectCard {...i} />
+        ))}
       </div>
     </main>
   </body>
