@@ -16,13 +16,15 @@ const { title, description, links, image } = Astro.props;
 
 <div class="project">
   <div class="project-content">
-    <img src={"../../public" + image} alt={title} />
+    <img src={image} alt={title} />
     <p class="project-title">{title}</p>
     <p class="project-description">{description}</p>
+    <div class="fill"></div>
     {links.map((i) => (
       <div class="project-link">
         <a href={i.href} target="_blank">
           {i.label}
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
     ))}
