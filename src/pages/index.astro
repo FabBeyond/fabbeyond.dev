@@ -1,8 +1,9 @@
 ---
 import "../styles/style.css";
 import Navbar from "../components/Navbar.astro";
+import FeaturedProjectCard from "../components/FeaturedProjectCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-const featuredProjects = [
+const projects = [
   {
     title: "LITT",
     description:
@@ -30,7 +31,68 @@ const featuredProjects = [
     tags: ["Unity", "C#"],
     isWIP: false,
   },
+  {
+    title: "Layout Tools",
+    description: "Simple tools to make building layouts easier",
+    links: [{ href: "", label: "Geode" }],
+    tags: ["Geometry Dash", "C++", "Modding"],
+    isWIP: false,
+  },
+  {
+    title: "StartPos En/Disabler",
+    description: "Enable/Disable multiple start positions with one click",
+    links: [
+      {
+        href: "https://geode-sdk.org/mods/fabbeyond.startposdisabler",
+        label: "Geode",
+      },
+    ],
+    tags: ["Geometry Dash", "C++", "Modding"],
+    isWIP: false,
+  },
+  {
+    title: "Random Teleport",
+    description: "Teleports you somewhere completly random every 3 minutes.",
+    links: [{ href: "", label: "Thunderstore" }],
+    tags: ["Silksong", "C#", "BepInEx"],
+    isWIP: false,
+  },
+  {
+    title: "Hornet Addict",
+    description:
+      "Takes Hornets needle away and gives her only Flea Brew bottles to throw",
+    links: [{ href: "", label: "Thunderstore" }],
+    tags: ["Silksong", "C#", "BepInEx"],
+    isWIP: false,
+  },
+  {
+    title: "Infinite Cogflies",
+    description: "Mod to remove the Cogfly amount cap",
+    links: [{ href: "", label: "Thunderstore" }],
+    tags: ["Silksong", "C#", "BepInEx"],
+    isWIP: false,
+  },
+  {
+    title: "Zaza in Bellhome",
+    description:
+      "Allows you to bring Zaza to your Bellhome after defeating Lost Garmond",
+    links: [{ href: "", label: "Thunderstore" }],
+    tags: ["Silksong", "C#", "BepInEx"],
+    isWIP: false,
+  },
 ];
+const featuredProjects = ["LITT", "TailFE", "Fortuna"];
+const mods = [
+  "StartPos En/Disabler",
+  "Layout Tools",
+  "Random Teleport",
+  "Hornet Addict",
+  "Infinite Cogflies",
+  "Zaza in Bellhome",
+];
+function getProjects(names: string[]) {
+  return projects.filter((i) => names.includes(i.title));
+}
 ---
 
 <html lang="en">
@@ -73,9 +135,16 @@ const featuredProjects = [
         </div>
       </div>
 
-      <p class="featured-title">Featured Projects</p>
+      <p class="collection-title">Featured Projects</p>
       <div class="project-list">
-        {featuredProjects.map((i) => (
+        {getProjects(featuredProjects).map((i) => (
+          <FeaturedProjectCard {...i} />
+        ))}
+      </div>
+
+      <p class="collection-title">Mods</p>
+      <div class="project-list">
+        {getProjects(mods).map((i) => (
           <ProjectCard {...i} />
         ))}
       </div>
