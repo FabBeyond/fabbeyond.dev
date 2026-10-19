@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --bg: #1e1f2a;
+  --accent: #86a6d8;
+  --text: #e6e8ef;
+  --muted: #9aa1b3;
+  --nav: #c9ceda;
+  --line: #4370a9;
+}
+
+body,
+html {
+  background-color: var(--bg);
+  padding: 0;
+}
+body {
+  margin-left: 50px;
+}
+.titles {
+  font-weight: bolder;
+  color: var(--accent);
+  font-size: 40px;
+  text-align: center;
+  display: block;
+  margin: 0;
+}
+.font {
+  font-family: "Quantico";
+}
+.divider {
+  height: 3px;
+  background-color: var(--line);
+  margin-left: 0;
+  float: none;
+  border: none;
+}
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 100px 20px 100px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.nav-bar ul {
+  margin: 0;
+  padding: 0;
+}
+#navbar a:hover {
+  text-decoration: underline !important;
+}
+.nav-bar-left * {
+  margin-right: 50px;
+}
+.nav-bar-left {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.nav-bar-left p {
+  margin-right: 100px;
+}
+.nav-bar-left a {
+  text-decoration: none;
+  color: var(--nav);
+}
+.nav-bar-right * {
+  margin-left: 50px;
+}
+.nav-bar-right {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.nav-bar-right a {
+  text-decoration: none;
+  color: var(--nav);
+}
+::-webkit-scrollbar {
+  display: none;
+}
+main {
+  margin: 100px;
+}
+.about p {
+  color: var(--accent);
+  margin: 0;
+  padding: 0;
+}
+.personal-title {
+  font-size: 100px;
+  font-weight: bolder;
+}
+.personal-subtitle {
+  font-size: 30px;
+  color: #e6e8ef !important;
+}
+.location {
+  color: var(--muted) !important;
+}
+.about-btn {
+  margin: 60px 0;
+}
+.about-btn a {
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bolder;
+  border-radius: 5px;
+  border: 2px solid var(--accent);
+}
+.btn-primary {
+  margin-right: 10px;
+  color: var(--bg);
+  background-color: var(--accent);
+}
+.btn-secondary {
+  color: var(--accent);
+}
+.skills-list {
+  display: flex;
+}
+.skills-list p {
+  margin-top: 10px;
+  margin-right: 20px;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-family: "Quantico";
+  font-weight: bold;
+}
+.project-list {
+  display: flex;
+}
+.project {
+  width: 200px;
+  height: 300px;
+  background-color: var(--accent);
+}
