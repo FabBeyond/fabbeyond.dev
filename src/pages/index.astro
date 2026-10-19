@@ -1,9 +1,10 @@
 ---
 import "../styles/style.css";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <html lang="en">
-	<head>
+  <head>
     <meta charset="UTF-8" />
     <title>fabbeyond.dev - Projects</title>
     <link
@@ -11,10 +12,12 @@ import "../styles/style.css";
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <Navbar />
 
-	</head>
-	<body>
-    <div class="about">
+    <main>
+      <div class="about">
         <p class="personal-title font">Hi, I'm Fab.</p>
         <p class="personal-subtitle font">
           I make games, mods, tools and self-hosted backends.
@@ -27,18 +30,22 @@ import "../styles/style.css";
           <p>C#</p>
           <p>JavaScript</p>
           <p>HTML/CSS</p>
-          <p>FastAPI</p>
+          <p>React</p>
         </div>
 
         <div class="about-btn">
-          <a class="btn-primary font">GitHub</a>
-          <a class="btn-secondary font">Email me</a>
+          <a class="btn-primary font" href="https://github.com/FabBeyond/">
+            GitHub
+          </a>
+          <a class="btn-secondary font" href="mailto:fabian.wurmitzer@gmx.at">
+            Email me
+          </a>
         </div>
       </div>
 
       <div class="project-list">
         <div class="project"></div>
       </div>
-
-	</body>
+    </main>
+  </body>
 </html>
