@@ -9,6 +9,8 @@ const featuredProjects = [
       "LITT is a CLI tool to display lyrics of the currently playing song in the terminal",
     links: [{ href: "https://github.com/FabBeyond/litt", label: "GitHub" }],
     image: "",
+    tags: ["Python", "CLI", "PyPi"],
+    isWIP: false,
   },
   {
     title: "TailFE",
@@ -16,6 +18,8 @@ const featuredProjects = [
       "TailFE is a fully customaizable, cross platform file explorer",
     links: [{ href: "https://github.com/FabBeyond/TailFE", label: "GitHub" }],
     image: "",
+    tags: ["React", "Javascript", "Electron"],
+    isWIP: true,
   },
   {
     title: "Fortuna",
@@ -23,6 +27,8 @@ const featuredProjects = [
       "Fortuna is a rogue-like card game made for the 2025 Spengergasse internal game jam",
     links: [{ href: "https://fabbeyond.itch.io/fortuna", label: "itch.io" }],
     image: "/GameIcons/Fortuna.png",
+    tags: ["Unity", "C#"],
+    isWIP: false,
   },
 ];
 ---
@@ -67,6 +73,7 @@ const featuredProjects = [
         </div>
       </div>
 
+      <p class="featured-title">Featured Projects</p>
       <div class="project-list">
         {featuredProjects.map((i) => (
           <ProjectCard {...i} />

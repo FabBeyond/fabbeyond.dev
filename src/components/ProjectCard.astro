@@ -9,16 +9,26 @@ interface Props {
   description: string;
   links: Link[];
   image: string;
+  tags: string[];
+  isWIP: boolean;
 }
 
-const { title, description, links, image } = Astro.props;
+const { title, description, links, image, tags, isWIP } = Astro.props;
 ---
 
 <div class="project">
   <div class="project-content">
     <img src={image} alt={title} />
-    <p class="project-title">{title}</p>
+    <div class="project-title-container">
+      <p class="project-title">{title}</p>
+      {isWIP && <div class="wip-project-tag">WIP</div>}
+    </div>
     <p class="project-description">{description}</p>
+    <div class="project-tags">
+      {tags.map((i) => (
+        <div class="project-tag">{i}</div>
+      ))}
+    </div>
     <div class="fill"></div>
     {links.map((i) => (
       <div class="project-link">
