@@ -11,17 +11,22 @@ interface Props {
   image: string;
   tags: string[];
   isWIP: boolean;
+  type: string;
+  downloads: string;
 }
 
-const { title, description, links, image, tags, isWIP } = Astro.props;
+const { title, description, links, image, tags, isWIP, type, downloads } =
+  Astro.props;
 ---
 
-<div class="project">
+<div class={type}>
   <div class="project-content">
-    <img src={image} alt={title} />
-    <div class="project-title-container">
-      <p class="project-title">{title}</p>
-      {isWIP && <div class="wip-project-tag">WIP</div>}
+    <div class="top-row">
+      <img src={image} alt={title} class="project-image" />
+      <div class="project-title-container">
+        <p class="project-title">{title}</p>
+        {isWIP && <div class="wip-project-tag">WIP</div>}
+      </div>
     </div>
     <p class="project-description">{description}</p>
     <div class="project-tags">
@@ -29,14 +34,17 @@ const { title, description, links, image, tags, isWIP } = Astro.props;
         <div class="project-tag">{i}</div>
       ))}
     </div>
+    {downloads != null && <p class="downloads">{downloads}</p>}
     <div class="fill"></div>
-    {links.map((i) => (
-      <div class="project-link">
-        <a href={i.href} target="_blank">
-          {i.label}
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-      </div>
-    ))}
+    <div class="project-links">
+      {links.map((i) => (
+        <div class="project-link">
+          <a href={i.href} target="_blank">
+            {i.label}
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      ))}
+    </div>
   </div>
 </div>

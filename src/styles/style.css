@@ -131,27 +131,38 @@ main {
   font-family: "Quantico";
   font-weight: bold;
 }
-.project-list {
-  display: flex;
+.fav-project-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   flex-direction: row;
   gap: 30px;
 }
-.project {
-  width: 300px;
-  height: 475px;
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-direction: row;
+  gap: 30px;
+}
+.project,
+.fav-project {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   background-color: var(--card);
   border: 2px solid var(--line);
   border-radius: 15px;
 }
-.project:hover {
-  border-color: var(--accent);
+.fav-project {
+  min-height: 475px;
+}
+.project {
+  min-height: 350px;
 }
 .project-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 100%;
+  flex: 1;
 }
 .project-content * {
   padding: 0;
@@ -191,10 +202,14 @@ main {
   gap: 5px;
   display: flex;
 }
+.project-links {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
 .fill {
   flex: 1;
-  height: 0;
-  width: 0;
+  width: 100%;
 }
 .collection-title {
   margin-top: 80px;
@@ -205,13 +220,16 @@ main {
 .project-tags {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 .project-tag {
   color: var(--muted);
   padding: 2px 10px;
   border-radius: 10px;
   border: 2px solid var(--line);
+  font-size: 15px;
+  white-space: nowrap;
 }
 .wip-project-tag {
   height: fit-content;
@@ -225,4 +243,43 @@ main {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.fav-project .project-image {
+  width: 90%;
+  align-self: center;
+}
+.project .project-image {
+  width: 20%;
+  height: auto;
+  flex-shrink: 0;
+}
+.downloads {
+  padding: 0;
+  margin: 0;
+  color: var(--muted);
+}
+.project .top-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+}
+.project .project-title-container {
+  flex: 1;
+}
+.project .project-text {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+@media (max-width: 1300px) {
+  .project-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .project-list {
+    grid-template-columns: 1fr;
+  }
 }

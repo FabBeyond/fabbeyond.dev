@@ -1,7 +1,6 @@
 ---
 import "../styles/style.css";
 import Navbar from "../components/Navbar.astro";
-import FeaturedProjectCard from "../components/FeaturedProjectCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 const projects = [
   {
@@ -34,8 +33,19 @@ const projects = [
   {
     title: "Layout Tools",
     description: "Simple tools to make building layouts easier",
-    links: [{ href: "", label: "Geode" }],
-    tags: ["Geometry Dash", "C++", "Modding"],
+    links: [
+      {
+        href: "https://geode-sdk.org/mods/fabbeyond.layouttools",
+        label: "Geode",
+      },
+      {
+        href: "https://github.com/FabBeyond/AutoDisableGlow",
+        label: "GitHub",
+      },
+    ],
+    image: "ModIcons/LayoutTools.png",
+    downloads: "30k+ downloads",
+    tags: ["Geometry Dash", "C++"],
     isWIP: false,
   },
   {
@@ -46,14 +56,27 @@ const projects = [
         href: "https://geode-sdk.org/mods/fabbeyond.startposdisabler",
         label: "Geode",
       },
+      {
+        href: "https://github.com/FabBeyond/StartPosDisabler",
+        label: "GitHub",
+      },
     ],
-    tags: ["Geometry Dash", "C++", "Modding"],
+    image: "ModIcons/StartPosEnDisabler.png",
+    downloads: "8k+ downloads",
+    tags: ["Geometry Dash", "C++"],
     isWIP: false,
   },
   {
     title: "Random Teleport",
     description: "Teleports you somewhere completly random every 3 minutes.",
-    links: [{ href: "", label: "Thunderstore" }],
+    links: [
+      {
+        href: "https://thunderstore.io/c/hollow-knight-silksong/p/fabbeyond/RandomTeleport/",
+        label: "Thunderstore",
+      },
+    ],
+    image: "ModIcons/RandomTeleport.png",
+    downloads: "4.5k+ downloads",
     tags: ["Silksong", "C#", "BepInEx"],
     isWIP: false,
   },
@@ -61,14 +84,28 @@ const projects = [
     title: "Hornet Addict",
     description:
       "Takes Hornets needle away and gives her only Flea Brew bottles to throw",
-    links: [{ href: "", label: "Thunderstore" }],
+    links: [
+      {
+        href: "https://thunderstore.io/c/hollow-knight-silksong/p/fabbeyond/HornetAddict/",
+        label: "Thunderstore",
+      },
+    ],
+    image: "ModIcons/HornetAddict.png",
+    downloads: "1.5k+ downloads",
     tags: ["Silksong", "C#", "BepInEx"],
     isWIP: false,
   },
   {
     title: "Infinite Cogflies",
     description: "Mod to remove the Cogfly amount cap",
-    links: [{ href: "", label: "Thunderstore" }],
+    links: [
+      {
+        href: "https://thunderstore.io/c/hollow-knight-silksong/p/fabbeyond/InfiniteCogflies/",
+        label: "Thunderstore",
+      },
+    ],
+    image: "ModIcons/InfiniteCogflies.png",
+    downloads: "10k +downloads",
     tags: ["Silksong", "C#", "BepInEx"],
     isWIP: false,
   },
@@ -76,8 +113,46 @@ const projects = [
     title: "Zaza in Bellhome",
     description:
       "Allows you to bring Zaza to your Bellhome after defeating Lost Garmond",
-    links: [{ href: "", label: "Thunderstore" }],
+    links: [
+      {
+        href: "https://thunderstore.io/c/hollow-knight-silksong/p/fabbeyond/ZaZaInBellhome/",
+        label: "Thunderstore",
+      },
+    ],
+    image: "ModIcons/ZazaInBellhome.png",
+    downloads: "3.5k+ downloads",
     tags: ["Silksong", "C#", "BepInEx"],
+    isWIP: false,
+  },
+  {
+    title: "ROMA Bot",
+    description: "Discord bot for the Vocaloid producer ROMA",
+    links: [
+      {
+        href: "https://github.com/FabBeyond/romabot",
+        label: "GitHub",
+      },
+      {
+        href: "https://discord.gg/YSwMdAyTuj",
+        label: "Discord",
+      },
+    ],
+    image: "ProgramIcons/roma.png",
+    tags: ["Python", "discord.py", "SQLite"],
+    isWIP: false,
+  },
+  {
+    title: "Cogfly",
+    description:
+      "Silksong mod loader. I contributed settings and misc. bug fixes",
+    links: [
+      {
+        href: "",
+        label: "GitHub",
+      },
+    ],
+    image: "ProgramIcons/Cogfly.png",
+    tags: ["Java", "Contribution"],
     isWIP: false,
   },
 ];
@@ -90,6 +165,7 @@ const mods = [
   "Infinite Cogflies",
   "Zaza in Bellhome",
 ];
+const programs = ["ROMA Bot", "Cogfly"];
 function getProjects(names: string[]) {
   return projects.filter((i) => names.includes(i.title));
 }
@@ -126,26 +202,41 @@ function getProjects(names: string[]) {
         </div>
 
         <div class="about-btn">
-          <a class="btn-primary font" href="https://github.com/FabBeyond/">
+          <a
+            class="btn-primary font"
+            href="https://github.com/FabBeyond/"
+            target="_blank"
+          >
             GitHub
           </a>
-          <a class="btn-secondary font" href="mailto:fabian.wurmitzer@gmx.at">
+          <a
+            class="btn-secondary font"
+            href="mailto:fabian.wurmitzer@gmx.at"
+            target="_blank"
+          >
             Email me
           </a>
         </div>
       </div>
 
       <p class="collection-title">Featured Projects</p>
-      <div class="project-list">
+      <div class="fav-project-list">
         {getProjects(featuredProjects).map((i) => (
-          <FeaturedProjectCard {...i} />
+          <ProjectCard {...i} type="fav-project" />
         ))}
       </div>
 
       <p class="collection-title">Mods</p>
       <div class="project-list">
         {getProjects(mods).map((i) => (
-          <ProjectCard {...i} />
+          <ProjectCard {...i} type="project" />
+        ))}
+      </div>
+
+      <p class="collection-title">Tools and Contributions</p>
+      <div class="project-list">
+        {getProjects(programs).map((i) => (
+          <ProjectCard {...i} type="project" />
         ))}
       </div>
     </main>
