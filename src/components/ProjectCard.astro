@@ -22,7 +22,18 @@ const { title, description, links, image, tags, isWIP, type, downloads } =
 <div class={type}>
   <div class="project-content">
     <div class="top-row">
-      <img src={image} alt={title} class="project-image" />
+      {image.endsWith(".mp4") ? (
+        <video
+          src={image}
+          autoplay
+          loop
+          muted
+          playsinline
+          class="project-image"
+        />
+      ) : (
+        image && <img src={image} alt={title} class="project-image" />
+      )}
       <div class="project-title-container">
         <p class="project-title">{title}</p>
         {isWIP && <div class="wip-project-tag">WIP</div>}
