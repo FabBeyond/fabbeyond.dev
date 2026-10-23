@@ -59,7 +59,7 @@ html {
   margin-right: auto;
 }
 .nav-bar-left a {
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--nav);
 }
 .nav-bar-right {
@@ -70,7 +70,7 @@ html {
   gap: 50px;
 }
 .nav-bar-right a {
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--nav);
 }
 ::-webkit-scrollbar {
@@ -250,6 +250,42 @@ main {
   margin: 0;
   color: var(--muted);
 }
+footer {
+  margin: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.say-hi p {
+  color: var(--nav);
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+}
+.say-hi a {
+  margin-left: 15px;
+  color: var(--nav);
+  text-decoration: underline;
+  font-size: 40px;
+}
+.say-hi {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  font-size: 20px;
+}
+.footer-links a {
+  color: var(--nav);
+}
+.copyright {
+  color: var(--muted);
+  font-size: 13px;
+}
 @media (min-width: 631px) {
   .project {
     min-height: 350px;
@@ -294,10 +330,20 @@ main {
   main {
     margin: 30px;
   }
+  footer {
+    margin: 30px;
+  }
 }
 @media (max-width: 800px) {
   .fav-project-list {
     grid-template-columns: 1fr;
+  }
+  .say-hi a,
+  .say-hi p {
+    font-size: 30px;
+  }
+  .copyright {
+    font-size: 12px;
   }
 }
 @media (max-width: 630px) {
@@ -317,6 +363,9 @@ main {
   main {
     margin: 10px;
   }
+  footer {
+    margin: 10px;
+  }
   .personal-title {
     font-size: 80px;
   }
@@ -326,6 +375,13 @@ main {
   .location {
     font-size: 13px;
   }
+  .say-hi a,
+  .say-hi p {
+    font-size: 25px;
+  }
+  .footer-links {
+    font-size: 23px;
+  }
 }
 @media (max-width: 500px) {
   .personal-title {
@@ -333,5 +389,12 @@ main {
   }
   .personal-subtitle {
     font-weight: normal;
+  }
+  .say-hi a,
+  .say-hi p {
+    font-size: 20px;
+  }
+  .footer-links {
+    font-size: 18px;
   }
 }
