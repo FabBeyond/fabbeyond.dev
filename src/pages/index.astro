@@ -2,6 +2,7 @@
 import "../styles/style.css";
 import Navbar from "../components/Navbar.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import Footer from "../components/Footer.astro";
 const projects = [
   {
     title: "LITT",
@@ -242,23 +243,7 @@ function getProjects(names: string[]) {
       </div>
     </main>
     <div class="nav-bar-divider"></div>
-    <footer>
-      <div class="say-hi">
-        <p>
-          Say Hi <i class="fa-solid fa-arrow-right"></i>
-          <a href="mailto:fabian.wurmitzer@gmx.at" target="_blank">
-            fabian.wurmitzer@gmx.at
-          </a>
-        </p>
-      </div>
-      <div class="footer-links">
-        <a href="https://github.com/FabBeyond">GitHub</a>
-        <a href="https://fabbeyond.itch.io">itch.io</a>
-        <a href="https://youtube.com/@fabbeyond">YouTube</a>
-      </div>
-      <p class="copyright">
-        Copyright (c) 2026 FabBeyond. All Rights Reserved.
-      </p>
-    </footer>
+
+    <Footer />
   </body>
 </html>
