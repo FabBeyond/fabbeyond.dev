@@ -21,87 +21,148 @@ import Footer from "../components/Footer.astro";
 
     <main>
       <div class="about-content">
-        <p class="about-title">ABOUT</p>
+        <div class="about-intro-content">
+          <p class="about-title">ABOUT</p>
 
-        <p class="about-intro">
-          My name is Fabian, or Fab for short, and I'm a 16 yr. old programmer
-          from Austria.
-        </p>
-        <p class="about-intro">
-          Currently, while working on miscellaneous projects, I'm studing Game
-          Design at{" "}
-          <a href="https://www.spengergasse.at" target="_blank">
-            HTL Spengergasse
-          </a>{" "}
-          in Vienna.
-        </p>
+          <p class="about-intro">
+            My name is Fabian, or Fab for short, and I'm a 16 yr. old programmer
+            from Austria.
+          </p>
+          <p class="about-intro">
+            Currently, while working on miscellaneous projects, I'm studing Game
+            Design at{" "}
+            <a href="https://www.spengergasse.at" target="_blank">
+              HTL Spengergasse
+            </a>{" "}
+            in Vienna.
+          </p>
+        </div>
+        <div class="about-tl-texts">
+          <div class="about-texts">
+            <p class="about-text" id="First Coding Experience">
+              I had my first experience with coding around the age of 8. My dad
+              introduced me to an app called{" "}
+              <a href="https://www.scratchjr.org/">"Scratch Jr."</a> which is
+              like Scratch but way more simple.
+            </p>
+            <p class="about-text" id="Scratch & Python">
+              I quickly outgrew Scratch Jr and switched to the full version{" "}
+              <a href="https://scratch.mit.edu/">"Scratch"</a>. This was my main
+              programming language for a few years until I tried out Python. Due
+              to my extensive use of Scratch I quickly grasped how written
+              coding works and started making little projects like Quizzes,
+              small drawings with the Turtle library and simple UIs with
+              tkinter. Around that time I attended lots of coding summer camps
+              for Scratch and Python. I was so advanced at that point that I
+              even got to teach the other attending kids something.
+            </p>
 
-        <p class="about-text">
-          I had my first experience with coding around the age of 8. My dad
-          introduced me to an app called{" "}
-          <a href="https://www.scratchjr.org/">"Scratch Jr."</a> which I quickly
-          outgrew and I switched over to the full version{" "}
-          <a href="https://scratch.mit.edu/">Scratch</a>. This was my main
-          programming language for a few years until I tried out Python. Due to
-          my extensive use of Scratch I quickly grasped how written coding works
-          and started making little projects like Quizzes, small drawings with
-          the Turtle library and simple UIs with tkinter. Around that time I
-          attended lots of coding summer camps for Scratch, Python and Unity. I
-          was so advanced at that point that I even got to teach the other
-          attending kids something.
-        </p>
+            <p class="about-text" id="Unity & C#">
+              Then I got really interested in Game Development and tried out
+              Unity & C#, which I still use to make games. My first finished and
+              released game,{" "}
+              <a href="https://fabbeyond.itch.io/balanced-load">
+                "Balanced Load"
+              </a>
+              , was made for the{" "}
+              <a href="https://itch.io/jam/gmtk-2024">GTMK 2024 Game Jam</a>.
+              Both other released games,{" "}
+              <a href="https://fabbeyond.itch.io/fortuna">"Fortuna"</a> &{" "}
+              <a href="https://fabbeyond.itch.io/ohcrab">"Oh, Crab!"</a>, were
+              made for the internal Spengergasse Game Jams, 2025 & 2026
+              respectfully. "Fortuna" was made when I was in first grade and
+              actually won the Jam making me and my team the first ever
+              first-graders to win the Game Jam.
+            </p>
+            <p class="about-text" id="Modding">
+              During the same time I also got interested in Modding. I started
+              simple by making small mods for{" "}
+              <a href="https://store.steampowered.com/app/2236070/Peaks_of_Yore/">
+                "Peaks of Yore"
+              </a>
+              , a 3D physics-based climbing game. Once I got more comfortable
+              modding I made slightly bigger and mroe complex mods for{" "}
+              <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/">
+                "Silksong"
+              </a>{" "}
+              and{" "}
+              <a href="https://store.steampowered.com/app/322170/Geometry_Dash/">
+                "Geometry Dash"
+              </a>
+              . My experience with Unity helped tremendously with Modding Unity
+              games and made it way easier to get started. Over the course of
+              1.5 years all my mods reached around 60 thousand downloads, my
+              most popular one{" "}
+              <a href="https://geode-sdk.org/mods/fabbeyond.layouttools">
+                "Layout Tools"
+              </a>
+              , for Geometry Dash, having amassed over 30k downloads.
+            </p>
 
-        <p class="about-text">
-          Then I got really interested in Game Development and tried out Unity &
-          C#, which I still use to make games. My first finished and released
-          game,{" "}
-          <a href="https://fabbeyond.itch.io/balanced-load">"Balanced Load"</a>,
-          was made for the{" "}
-          <a href="https://itch.io/jam/gmtk-2024">GTMK 2024 Game Jam</a>. Both
-          other released games,{" "}
-          <a href="https://fabbeyond.itch.io/fortuna">"Fortuna"</a> &{" "}
-          <a href="https://fabbeyond.itch.io/ohcrab">"Oh, Crab!"</a>, were made
-          for the internal Spengergasse Game Jams, 2025 & 2026 respectfully.
-          "Fortuna" was made when I was in first grade and actually won the Jam
-          making me and my team the first ever first-graders to win the Game
-          Jam.
-        </p>
-        <p class="about-text">
-          During the same time I also got interested in Modding. I started
-          simple by making small mods for{" "}
-          <a href="https://store.steampowered.com/app/2236070/Peaks_of_Yore/">
-            "Peaks of Yore"
-          </a>
-          , a 3D physics-based climbing game. Once I got more comfortable
-          modding I made slightly bigger and mroe complex mods for{" "}
-          <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/">
-            "Silksong"
-          </a>{" "}
-          and{" "}
-          <a href="https://store.steampowered.com/app/322170/Geometry_Dash/">
-            "Geometry Dash"
-          </a>
-          . My experience with Unity helped tremendously with Modding Unity
-          games and made it way easier to get started. Over the course of 1.5
-          years all my mods reached around 60 thousand downloads, my most
-          popular one{" "}
-          <a href="https://geode-sdk.org/mods/fabbeyond.layouttools">
-            "Layout Tools"
-          </a>
-          , for Geometry Dash, having amassed over 30k downloads.
-        </p>
-
-        <p class="about-text">
-          Around early 2026 I became interested in self hosting servers for
-          various purposes like Discord bots, Minecraft servers, Websites, etc.
-          I used my old PC as a home server which I run said things on. This
-          means I have a decent understanding of Linux and servers as a whole.
-        </p>
+            <p class="about-text" id="Servers & Linux">
+              Around early 2026 I became interested in self hosting servers for
+              various purposes like Discord bots, Minecraft servers, Websites,
+              etc. I used my old PC as a home server which I run said things on.
+              This means I have a decent understanding of Linux and servers as a
+              whole.
+            </p>
+          </div>
+          <div class="about-timeline">
+            <div class="tl-line"></div>
+          </div>
+        </div>
       </div>
     </main>
 
     <div class="nav-bar-divider"></div>
-  </body>
+    <Footer />
 
-  <Footer />
+    <script>
+      const timeline = document.querySelector<HTMLElement>(".about-timeline");
+      const texts = document.querySelectorAll<HTMLElement>(".about-text");
+      const line = timeline?.querySelector<HTMLElement>(".tl-line");
+
+      if (timeline) {
+        const dots = [...texts].map((i) => {
+          const point = document.createElement("div");
+          const dot = document.createElement("div");
+          const text = document.createElement("p");
+
+          text.className = "tl-text";
+          text.innerHTML = i.id;
+
+          dot.className = "tl-dot";
+
+          point.className = "tl-point";
+
+          point.append(dot);
+          point.append(text);
+          timeline.append(point);
+
+          return point;
+        });
+
+        const placeDots = () => {
+          const timelineTop = timeline.getBoundingClientRect().top;
+
+          const centers = [...texts].map(
+            (text) =>
+              text.getBoundingClientRect().top -
+              timelineTop +
+              text.offsetHeight / 2,
+          );
+          centers.forEach((center, idx) => {
+            dots[idx].style.top = `${center - 15}px`;
+          });
+          if (line) {
+            line.style.top = `${centers[0]}px`;
+            line.style.height = `${centers[centers.length - 1] - centers[0]}px`;
+          }
+        };
+
+        placeDots();
+        new ResizeObserver(placeDots).observe(document.body);
+      }
+    </script>
+  </body>
 </html>
