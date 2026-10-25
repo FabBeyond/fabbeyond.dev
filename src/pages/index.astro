@@ -269,16 +269,16 @@ function getProjects(names: string[]) {
         ))}
       </div>
 
-      <p class="collection-title">Games</p>
+      <p class="collection-title">Mods</p>
       <div class="project-list">
-        {getProjects(games).map((i) => (
+        {getProjects(mods).map((i) => (
           <ProjectCard {...i} type="project" />
         ))}
       </div>
 
-      <p class="collection-title">Mods</p>
+      <p class="collection-title">Games</p>
       <div class="project-list">
-        {getProjects(mods).map((i) => (
+        {getProjects(games).map((i) => (
           <ProjectCard {...i} type="project" />
         ))}
       </div>
