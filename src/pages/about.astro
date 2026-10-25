@@ -39,13 +39,21 @@ import Footer from "../components/Footer.astro";
         </div>
         <div class="about-tl-texts">
           <div class="about-texts">
-            <p class="about-text" id="First Coding Experience">
+            <p
+              class="about-text"
+              data-label="First Coding Experience"
+              data-year="2018"
+            >
               I had my first experience with coding around the age of 8. My dad
               introduced me to an app called{" "}
               <a href="https://www.scratchjr.org/">"Scratch Jr."</a> which is
               like Scratch but way more simple.
             </p>
-            <p class="about-text" id="Scratch & Python">
+            <p
+              class="about-text"
+              data-label="Scratch & Python"
+              data-year="2018"
+            >
               I quickly outgrew Scratch Jr and switched to the full version{" "}
               <a href="https://scratch.mit.edu/">"Scratch"</a>. This was my main
               programming language for a few years until I tried out Python. Due
@@ -57,7 +65,7 @@ import Footer from "../components/Footer.astro";
               even got to teach the other attending kids something.
             </p>
 
-            <p class="about-text" id="Unity & C#">
+            <p class="about-text" data-label="Unity & C#" data-year="2022">
               Then I got really interested in Game Development and tried out
               Unity & C#, which I still use to make games. My first finished and
               released game,{" "}
@@ -74,7 +82,7 @@ import Footer from "../components/Footer.astro";
               actually won the Jam making me and my team the first ever
               first-graders to win the Game Jam.
             </p>
-            <p class="about-text" id="Modding">
+            <p class="about-text" data-label="Modding" data-year="2025">
               During the same time I also got interested in Modding. I started
               simple by making small mods for{" "}
               <a href="https://store.steampowered.com/app/2236070/Peaks_of_Yore/">
@@ -99,7 +107,7 @@ import Footer from "../components/Footer.astro";
               , for Geometry Dash, having amassed over 30k downloads.
             </p>
 
-            <p class="about-text" id="Servers & Linux">
+            <p class="about-text" data-label="Servers & Linux" data-year="2026">
               Around early 2026 I became interested in self hosting servers for
               various purposes like Discord bots, Minecraft servers, Websites,
               etc. I used my old PC as a home server which I run said things on.
@@ -122,27 +130,43 @@ import Footer from "../components/Footer.astro";
       const texts = document.querySelectorAll<HTMLElement>(".about-text");
       const line = timeline?.querySelector<HTMLElement>(".tl-line");
 
-      if (timeline) {
-        const dots = [...texts].map((i) => {
-          const point = document.createElement("div");
-          const dot = document.createElement("div");
-          const text = document.createElement("p");
+      const createDots = () => {
+        document
+          .querySelectorAll(".tl-point, .tl-text")
+          .forEach((i) => i.remove());
 
-          text.className = "tl-text";
-          text.innerHTML = i.id;
+        if (timeline) {
+          const dots = [...texts].map((i) => {
+            console.log(document.body.clientWidth);
+            const point = document.createElement("div");
+            const dot = document.createElement("div");
+            const text = document.createElement("p");
+            const yearText = document.createElement("p");
 
-          dot.className = "tl-dot";
+            yearText.className = "tl-text tl-year";
+            yearText.innerHTML = i.dataset.year;
 
-          point.className = "tl-point";
+            text.className = "tl-text";
+            text.innerHTML = i.dataset.label;
 
-          point.append(dot);
-          point.append(text);
-          timeline.append(point);
+            dot.className = "tl-dot";
 
-          return point;
-        });
+            point.className = "tl-point";
 
-        const placeDots = () => {
+            if (document.body.clientWidth <= 800) {
+              i.before(text);
+              i.before(yearText);
+              point.append(dot);
+            } else {
+              point.append(yearText);
+              point.append(dot);
+              point.append(text);
+            }
+            timeline.append(point);
+
+            return point;
+          });
+
           const timelineTop = timeline.getBoundingClientRect().top;
 
           const centers = [...texts].map(
@@ -152,17 +176,16 @@ import Footer from "../components/Footer.astro";
               text.offsetHeight / 2,
           );
           centers.forEach((center, idx) => {
-            dots[idx].style.top = `${center - 15}px`;
+            dots[idx].style.top = `${center - dots[idx].offsetHeight / 2}px`;
           });
           if (line) {
             line.style.top = `${centers[0]}px`;
             line.style.height = `${centers[centers.length - 1] - centers[0]}px`;
           }
-        };
-
-        placeDots();
-        new ResizeObserver(placeDots).observe(document.body);
-      }
+        }
+      };
+      createDots();
+      new ResizeObserver(createDots).observe(document.body);
     </script>
   </body>
 </html>
