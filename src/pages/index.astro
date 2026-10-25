@@ -3,22 +3,39 @@ import "../styles/style.css";
 import Navbar from "../components/Navbar.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import Footer from "../components/Footer.astro";
+import fortunaImg from "../assets/GameIcons/Fortuna.png";
+import ohCrabImg from "../assets/GameIcons/OhCrab.png";
+import balancedLoadImg from "../assets/GameIcons/BalancedLoad.png";
+import layoutToolsImg from "../assets/ModIcons/LayoutTools.png";
+import startPosImg from "../assets/ModIcons/StartPosEnDisabler.png";
+import randomTeleportImg from "../assets/ModIcons/RandomTeleport.png";
+import hornetAddictImg from "../assets/ModIcons/HornetAddict.png";
+import infiniteCogfliesImg from "../assets/ModIcons/InfiniteCogflies.png";
+import zazaImg from "../assets/ModIcons/ZazaInBellhome.png";
+import romaImg from "../assets/ProgramIcons/roma.png";
+import cogflyImg from "../assets/ProgramIcons/Cogfly.png";
+
 const projects = [
   {
     title: "LITT",
     description:
       "LITT is a CLI tool to display lyrics of the currently playing song in the terminal",
     links: [{ href: "https://github.com/FabBeyond/litt", label: "GitHub" }],
-    image: "/ProgramIcons/litt.mp4",
+    video: {
+      src: "/ProgramIcons/litt.mp4",
+      poster: "/ProgramIcons/litt-poster.webp",
+    },
     tags: ["Python", "CLI", "PyPi"],
     isWIP: false,
   },
   {
     title: "TailFE",
-    description:
-      "TailFE is a fully customaizable, cross platform file explorer",
+    description: "TailFE is a fully customizable, cross platform file explorer",
     links: [{ href: "https://github.com/FabBeyond/TailFE", label: "GitHub" }],
-    image: "/ProgramIcons/tailfe.mp4",
+    video: {
+      src: "/ProgramIcons/tailfe.mp4",
+      poster: "/ProgramIcons/tailfe-poster.webp",
+    },
     tags: ["React", "Javascript", "Electron"],
     isWIP: true,
   },
@@ -27,7 +44,7 @@ const projects = [
     description:
       "Fortuna is a rogue-like card game made for the 2025 Spengergasse internal game jam",
     links: [{ href: "https://fabbeyond.itch.io/fortuna", label: "itch.io" }],
-    image: "/GameIcons/Fortuna.png",
+    image: fortunaImg,
     tags: ["Unity", "C#"],
     isWIP: false,
   },
@@ -44,7 +61,7 @@ const projects = [
         label: "GitHub",
       },
     ],
-    image: "ModIcons/LayoutTools.png",
+    image: layoutToolsImg,
     downloads: "30k+ downloads",
     tags: ["Geometry Dash", "C++"],
     isWIP: false,
@@ -62,21 +79,21 @@ const projects = [
         label: "GitHub",
       },
     ],
-    image: "ModIcons/StartPosEnDisabler.png",
+    image: startPosImg,
     downloads: "8k+ downloads",
     tags: ["Geometry Dash", "C++"],
     isWIP: false,
   },
   {
     title: "Random Teleport",
-    description: "Teleports you somewhere completly random every 3 minutes.",
+    description: "Teleports you somewhere completely random every 3 minutes.",
     links: [
       {
         href: "https://thunderstore.io/c/hollow-knight-silksong/p/fabbeyond/RandomTeleport/",
         label: "Thunderstore",
       },
     ],
-    image: "ModIcons/RandomTeleport.png",
+    image: randomTeleportImg,
     downloads: "4.5k+ downloads",
     tags: ["Silksong", "C#", "BepInEx"],
     isWIP: false,
@@ -84,14 +101,14 @@ const projects = [
   {
     title: "Hornet Addict",
     description:
-      "Takes Hornets needle away and gives her only Flea Brew bottles to throw",
+      "Takes Hornet's needle away and gives her only Flea Brew bottles to throw",
     links: [
       {
         href: "https://thunderstore.io/c/hollow-knight-silksong/p/fabbeyond/HornetAddict/",
         label: "Thunderstore",
       },
     ],
-    image: "ModIcons/HornetAddict.png",
+    image: hornetAddictImg,
     downloads: "1.5k+ downloads",
     tags: ["Silksong", "C#", "BepInEx"],
     isWIP: false,
@@ -105,8 +122,8 @@ const projects = [
         label: "Thunderstore",
       },
     ],
-    image: "ModIcons/InfiniteCogflies.png",
-    downloads: "10k +downloads",
+    image: infiniteCogfliesImg,
+    downloads: "10k+ downloads",
     tags: ["Silksong", "C#", "BepInEx"],
     isWIP: false,
   },
@@ -120,7 +137,7 @@ const projects = [
         label: "Thunderstore",
       },
     ],
-    image: "ModIcons/ZazaInBellhome.png",
+    image: zazaImg,
     downloads: "3.5k+ downloads",
     tags: ["Silksong", "C#", "BepInEx"],
     isWIP: false,
@@ -138,7 +155,7 @@ const projects = [
         label: "Discord",
       },
     ],
-    image: "ProgramIcons/roma.png",
+    image: romaImg,
     tags: ["Python", "discord.py", "SQLite"],
     isWIP: false,
   },
@@ -152,12 +169,33 @@ const projects = [
         label: "GitHub",
       },
     ],
-    image: "ProgramIcons/Cogfly.png",
+    image: cogflyImg,
     tags: ["Java", "Contribution"],
+    isWIP: false,
+  },
+  {
+    title: "Oh, Crab!",
+    description:
+      "Oh, Crab! is an underwater themed collection game made for the 2026 Spengergasse internal game jam",
+    links: [{ href: "https://fabbeyond.itch.io/oh-crab", label: "itch.io" }],
+    image: ohCrabImg,
+    tags: ["Unity", "C#"],
+    isWIP: false,
+  },
+  {
+    title: "Balanced Load",
+    description:
+      "Balanced Load is a puzzle game about resizing minecraft made for the 2024 GMTK game jam",
+    links: [
+      { href: "https://fabbeyond.itch.io/balanced-load", label: "itch.io" },
+    ],
+    image: balancedLoadImg,
+    tags: ["Unity", "C#"],
     isWIP: false,
   },
 ];
 const featuredProjects = ["LITT", "TailFE", "Fortuna"];
+const games = ["Fortuna", "Oh, Crab!", "Balanced Load"];
 const mods = [
   "StartPos En/Disabler",
   "Layout Tools",
@@ -176,9 +214,11 @@ function getProjects(names: string[]) {
   <head>
     <meta charset="UTF-8" />
     <title>fabbeyond.dev - Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -201,6 +241,7 @@ function getProjects(names: string[]) {
           <p>JavaScript</p>
           <p>HTML/CSS</p>
           <p>React</p>
+          <p>Linux</p>
         </div>
 
         <div class="about-btn">
@@ -225,6 +266,13 @@ function getProjects(names: string[]) {
       <div class="fav-project-list">
         {getProjects(featuredProjects).map((i) => (
           <ProjectCard {...i} type="fav-project" />
+        ))}
+      </div>
+
+      <p class="collection-title">Games</p>
+      <div class="project-list">
+        {getProjects(games).map((i) => (
+          <ProjectCard {...i} type="project" />
         ))}
       </div>
 

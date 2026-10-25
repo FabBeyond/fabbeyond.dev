@@ -1,38 +1,73 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 interface Link {
   href: string;
   label: string;
+}
+
+interface Video {
+  src: string;
+  poster: string;
 }
 
 interface Props {
   title: string;
   description: string;
   links: Link[];
-  image: string;
+  image?: ImageMetadata;
+  video?: Video;
   tags: string[];
   isWIP: boolean;
   type: string;
-  downloads: string;
+  downloads?: string;
 }
 
-const { title, description, links, image, tags, isWIP, type, downloads } =
-  Astro.props;
+const {
+  title,
+  description,
+  links,
+  image,
+  video,
+  tags,
+  isWIP,
+  type,
+  downloads,
+} = Astro.props;
+
+const imageSizes =
+  type === "fav-project"
+    ? "(min-width: 1300px) 30vw, (min-width: 800px) 45vw, 90vw"
+    : "(min-width: 631px) 120px, 90vw";
 ---
 
 <div class={type}>
   <div class="project-content">
     <div class="top-row">
-      {image.endsWith(".mp4") ? (
+      {video ? (
         <video
-          src={image}
-          autoplay
+          src={video.src}
+          poster={video.poster}
+          width="640"
+          height="360"
           loop
           muted
           playsinline
+          preload="none"
+          aria-label={`${title} demo`}
           class="project-image"
         />
       ) : (
-        image && <img src={image} alt={title} class="project-image" />
+        image && (
+          <Image
+            src={image}
+            alt={title}
+            widths={[120, 240, 480, 720]}
+            sizes={imageSizes}
+            class="project-image"
+          />
+        )
       )}
       <div class="project-title-container">
         <p class="project-title">{title}</p>
@@ -45,17 +80,37 @@ const { title, description, links, image, tags, isWIP, type, downloads } =
         <div class="project-tag">{i}</div>
       ))}
     </div>
-    {downloads != null && <p class="downloads">{downloads}</p>}
+    {downloads && <p class="downloads">{downloads}</p>}
     <div class="fill"></div>
     <div class="project-links">
       {links.map((i) => (
         <div class="project-link">
           <a href={i.href} target="_blank">
             {i.label}
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+            </svg>
           </a>
         </div>
       ))}
     </div>
   </div>
 </div>
+
+<script>
+  // Only autoplay demo videos when the user hasn't asked for reduced motion
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document
+      .querySelectorAll<HTMLVideoElement>("video.project-image")
+      .forEach((video) => video.play().catch(() => {}));
+  }
+</script>

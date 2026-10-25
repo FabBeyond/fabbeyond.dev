@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
 :root {
   --bg: #1e1f2a;
   --accent: #86a6d8;
@@ -15,8 +13,8 @@ html {
   background-color: var(--bg);
   padding: 0;
   margin: 0;
-  font-family: "Quantico";
-  font-weight: bolder;
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
 }
 .titles {
   font-weight: bolder;
@@ -243,7 +241,14 @@ main {
 .fav-project .project-image,
 .project .project-image {
   width: 90%;
+  height: auto;
   align-self: center;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
 }
 .downloads {
   padding: 0;

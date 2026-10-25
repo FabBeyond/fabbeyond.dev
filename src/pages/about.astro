@@ -9,9 +9,11 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <title>fabbeyond.dev - About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -25,12 +27,12 @@ import Footer from "../components/Footer.astro";
           <p class="about-title">ABOUT</p>
 
           <p class="about-intro">
-            My name is Fabian, or Fab for short, and I'm a 16 yr. old programmer
-            from Austria.
+            My name is Fabian, or Fab for short, and I'm a 16-year-old
+            programmer from Austria.
           </p>
           <p class="about-intro">
-            Currently, while working on miscellaneous projects, I'm studing Game
-            Design at{" "}
+            Currently, while working on miscellaneous projects, I'm studying
+            Game Design at{" "}
             <a href="https://www.spengergasse.at" target="_blank">
               HTL Spengergasse
             </a>{" "}
@@ -73,14 +75,14 @@ import Footer from "../components/Footer.astro";
                 "Balanced Load"
               </a>
               , was made for the{" "}
-              <a href="https://itch.io/jam/gmtk-2024">GTMK 2024 Game Jam</a>.
+              <a href="https://itch.io/jam/gmtk-2024">GMTK 2024 Game Jam</a>.
               Both other released games,{" "}
               <a href="https://fabbeyond.itch.io/fortuna">"Fortuna"</a> &{" "}
               <a href="https://fabbeyond.itch.io/ohcrab">"Oh, Crab!"</a>, were
               made for the internal Spengergasse Game Jams, 2025 & 2026
-              respectfully. "Fortuna" was made when I was in first grade and
+              respectively. "Fortuna" was made when I was in first year and
               actually won the Jam making me and my team the first ever
-              first-graders to win the Game Jam.
+              first-year students to win the Game Jam.
             </p>
             <p class="about-text" data-label="Modding" data-year="2025">
               During the same time I also got interested in Modding. I started
@@ -89,7 +91,7 @@ import Footer from "../components/Footer.astro";
                 "Peaks of Yore"
               </a>
               , a 3D physics-based climbing game. Once I got more comfortable
-              modding I made slightly bigger and mroe complex mods for{" "}
+              modding I made slightly bigger and more complex mods for{" "}
               <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/">
                 "Silksong"
               </a>{" "}
@@ -137,17 +139,16 @@ import Footer from "../components/Footer.astro";
 
         if (timeline) {
           const dots = [...texts].map((i) => {
-            console.log(document.body.clientWidth);
             const point = document.createElement("div");
             const dot = document.createElement("div");
             const text = document.createElement("p");
             const yearText = document.createElement("p");
 
             yearText.className = "tl-text tl-year";
-            yearText.innerHTML = i.dataset.year;
+            yearText.textContent = i.dataset.year;
 
             text.className = "tl-text";
-            text.innerHTML = i.dataset.label;
+            text.textContent = i.dataset.label;
 
             dot.className = "tl-dot";
 
